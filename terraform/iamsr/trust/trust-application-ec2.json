@@ -9,7 +9,7 @@
              "Action": "sts:AssumeRoleWithWebIdentity",
              "Condition": {
                "StringEquals": {
-                  "D241D21B38E0BF3CE5D1255EFCC5CFE0:sub": "system:serviceaccount:fastfood-app:fastfood-api-sa"
+                  "oidc.eks.us-east-1.amazonaws.com/id/D241D21B38E0BF3CE5D1255EFCC5CFE0:sub": "system:serviceaccount:fastfood-app:fastfood-api-sa"
                }
            }
        }
