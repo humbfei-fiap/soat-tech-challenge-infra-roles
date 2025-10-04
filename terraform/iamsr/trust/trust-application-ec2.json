@@ -1,12 +1,17 @@
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "ec2.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
+    "Version": "2012-10-17",
+     "Statement": [
+       {
+           "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::239409137076:oidc-provider/D241D21B38E0BF3CE5D1255EFCC5CFE0"
+            },
+             "Action": "sts:AssumeRoleWithWebIdentity",
+             "Condition": {
+               "StringEquals": {
+                  "D241D21B38E0BF3CE5D1255EFCC5CFE0:sub": "system:serviceaccount:fastfood-app:fastfood-api-sa"
+               }
+           }
+       }
+     ]
 }
