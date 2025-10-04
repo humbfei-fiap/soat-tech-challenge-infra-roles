@@ -9,10 +9,15 @@ resource "aws_iam_policy" "application_postgres_policy" {
   description = "Policy para a aplicação acessar o Postgres via IAM Auth"
   policy      = file("${path.module}/iamsr/policy/policy-application-postgres.json")
 }
-
+resource "aws_iam_policy" "application_external_policy" {
+  name        = "${var.application_role_name}-external-policy"
+  description = "Policy para a aplicação acessar o externalsecret via IAM Auth"
+  policy      = file("${path.module}/iamsr/policy/policy-external.json")
+}
 resource "aws_iam_role_policy_attachment" "application_postgres_attachment" {
   role       = aws_iam_role.application_role.name
   policy_arn = aws_iam_policy.application_postgres_policy.arn
+  policy_arn = aws_iam_policy.application_external_policy.arn
 }
 
 
