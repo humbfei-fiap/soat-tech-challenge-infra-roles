@@ -17,6 +17,10 @@ resource "aws_iam_policy" "application_external_policy" {
 resource "aws_iam_role_policy_attachment" "application_postgres_attachment" {
   role       = aws_iam_role.application_role.name
   policy_arn = aws_iam_policy.application_postgres_policy.arn
+}
+
+resource "aws_iam_role_policy_attachment" "application_external_attachment" {
+  role       = aws_iam_role.application_role.name
   policy_arn = aws_iam_policy.application_external_policy.arn
 }
 
