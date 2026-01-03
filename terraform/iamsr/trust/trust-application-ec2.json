@@ -4,12 +4,12 @@
        {
            "Effect": "Allow",
             "Principal": {
-                "Federated": "arn:aws:iam::239409137076:oidc-provider/D241D21B38E0BF3CE5D1255EFCC5CFE0"
+                "Federated": "arn:aws:iam::239409137076:oidc-provider/0C52288F28E79883B18B5348D3445193"
             },
              "Action": "sts:AssumeRoleWithWebIdentity",
              "Condition": {
                "StringEquals": {
-                  "oidc.eks.us-east-1.amazonaws.com/id/D241D21B38E0BF3CE5D1255EFCC5CFE0:sub": "system:serviceaccount:fastfood-app:fastfood-api-sa"
+                  "oidc.eks.us-east-1.amazonaws.com/id/0C52288F28E79883B18B5348D3445193:sub": "system:serviceaccount:fastfood-customer:fastfood-api-sa"
                }
            }
        }

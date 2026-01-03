@@ -12,7 +12,8 @@
                     "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
                 },
                 "StringLike": {
-                    "token.actions.githubusercontent.com:sub": "repo:humbfei-fiap/*:*"
+                    "token.actions.githubusercontent.com:sub": "repo:humbfei-fiap/*:*",
+                    "token.actions.githubusercontent.com:sub": "repos:TechFiap/*:*"
                 }
             }
         }
