@@ -27,9 +27,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
-      - name: Mostrar Role Assumida
-        run: |
-          echo "Role to assume": ${{ secrets.AWS_ROLE_TO_ASSUME }}
+
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -37,7 +35,13 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           aws-region: us-east-1
           audience: sts.amazonaws.com
+        continue-on-error: true
 
+      - name: Verificar Role Assumida (Mesmo com Erro)
+        if: failure() || success()
+        run: |
+          echo "Tentativa de configuração falhou ou teve sucesso."
+          echo "Role configurada para assumir: ${{ secrets.AWS_ROLE_TO_ASSUME }}"
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
