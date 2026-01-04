@@ -37,20 +37,6 @@ jobs:
           audience: sts.amazonaws.com
         continue-on-error: true
 
-      - name: Verificar Role Assumida (Mesmo com Erro)
-        if: failure() || success()
-        env:
-          AWS_ROLE_TO_ASSUME_ARN: ${{ secrets.AWS_ROLE_TO_ASSUME_ARN }}
-        run: |
-          echo "Tentativa de configuração falhou ou teve sucesso."
-          echo "secrets.AWS_ROLE_TO_ASSUME_ARN: ${AWS_ROLE_TO_ASSUME_ARN}"
-          echo "Role configurada para assumir: ${AWS_ROLE_TO_ASSUME_ARN}"
-          echo "Logs do erro (se houver):"
-          if [ -f /github/workflow/error.log ]; then
-            cat /github/workflow/error.log
-          else
-            echo "Nenhum log de erro encontrado."
-          fi
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
