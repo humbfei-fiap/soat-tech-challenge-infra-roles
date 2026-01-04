@@ -41,11 +41,8 @@ jobs:
         if: failure() || success()
         run: |
           echo "Tentativa de configuração falhou ou teve sucesso."
-
-          echo secrets.AWS_ROLE_TO_ASSUME_ARN: ${{ secrets.AWS_ROLE_TO_ASSUME_ARN }}
-
-
-          echo "Role configurada para assumir: 
+          echo "secrets.AWS_ROLE_TO_ASSUME_ARN: ${{ secrets.AWS_ROLE_TO_ASSUME_ARN }}"
+          echo "Role configurada para assumir: ${{ secrets.AWS_ROLE_TO_ASSUME_ARN }}"
           echo "Logs do erro (se houver):"
           cat /github/workflow/error.log || echo "Nenhum log de erro encontrado."
 
