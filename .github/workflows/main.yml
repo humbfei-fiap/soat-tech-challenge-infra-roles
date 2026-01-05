@@ -35,7 +35,7 @@ jobs:
           role-to-assume: "arn:aws:iam::239409137076:role/github-actions"
           aws-region: us-east-1
           audience: sts.amazonaws.com
-        continue-on-error: true
+        #continue-on-error: true
 
 
       - name: Setup Terraform
