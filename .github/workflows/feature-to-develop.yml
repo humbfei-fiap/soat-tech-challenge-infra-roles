@@ -1,4 +1,4 @@
-name: 'Feature -> Develop PR'
+name: 'Feature to Develop PR'
 
 on:
   push:

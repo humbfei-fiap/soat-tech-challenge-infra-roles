@@ -1,4 +1,4 @@
-name: 'Destroy EKS Cluster'
+name: 'Destroy Roles e Policies Terraform'
 
 on:
   workflow_dispatch: # Permite acionamento manual

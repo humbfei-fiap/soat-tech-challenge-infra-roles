@@ -1,4 +1,4 @@
-name: 'Deploy to Main'
+name: 'PROD - Deploy to Main'
 
 on:
   push:
