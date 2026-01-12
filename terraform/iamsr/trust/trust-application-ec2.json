@@ -1,17 +1,22 @@
 {
-    "Version": "2012-10-17",
-     "Statement": [
-       {
-           "Effect": "Allow",
-            "Principal": {
-                "Federated": "arn:aws:iam::239409137076:oidc-provider/65191EC135D373D978635390AFE43D55"
-            },
-             "Action": "sts:AssumeRoleWithWebIdentity",
-             "Condition": {
-               "StringEquals": {
-                  "oidc.eks.us-east-1.amazonaws.com/id/65191EC135D373D978635390AFE43D55:sub": "system:serviceaccount:*:*"
-               }
-           }
-       }
-     ]
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Effect": "Allow",
+          "Principal": {
+              "Federated": "arn:aws:iam::239409137076:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/65191EC135D373D978635390AFE43D55"
+          },
+          "Action": "sts:AssumeRoleWithWebIdentity",
+          "Condition": {
+              "StringLike": {
+                  "oidc.eks.us-east-1.amazonaws.com/id/65191EC135D373D978635390AFE43D55:sub": [
+                      "system:serviceaccount:customer-app:*",
+                      "system:serviceaccount:order-app:*",
+                      "system:serviceaccount:payment-app:*",
+                      "system:serviceaccount:products-app:*"
+                  ]
+              }
+          }
+      }
+  ]
 }
